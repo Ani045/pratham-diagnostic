@@ -504,7 +504,8 @@ function App() {
 
       {/* Hero Section */}
       <div className="relative">
-      <section id="home" className="relative h-[100vh] lg:h-screen overflow-hidden">
+      {/* Hero Section */}
+      <section id="home" className="relative min-h-[70vh] lg:h-screen overflow-hidden">
         {heroSlides.map((slide, index) => (
           <div
             key={index}
@@ -512,6 +513,7 @@ function App() {
               index === currentSlide ? 'opacity-100' : 'opacity-0'
             }`}
           >
+            {/* Desktop Layout */}
             <div className="hidden lg:flex h-full">
               <div className="w-[60%] bg-gradient-to-br from-slate-100 via-blue-100 to-indigo-200 flex items-center">
                 <div className="max-w-2xl mx-auto px-8">
@@ -538,16 +540,17 @@ function App() {
               </div>
             </div>
 
-            <div className="lg:hidden bg-gradient-to-br from-slate-100 via-blue-100 to-indigo-200 h-full flex flex-col pb-[350px]">
-              <div className="px-6 py-6 flex-1 flex flex-col justify-center">
-                <h2 className="text-3xl font-bold text-slate-800 mb-4 leading-tight">
+            {/* Mobile Layout - Removed fixed height and padding bottom */}
+            <div className="lg:hidden bg-gradient-to-br from-slate-100 via-blue-100 to-indigo-200 min-h-[70vh] flex flex-col justify-center">
+              <div className="px-6 py-8 flex-1 flex flex-col justify-center">
+                <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-6 leading-tight">
                   {slide.title}
                 </h2>
-                <p className="text-base text-slate-700 mb-4 leading-relaxed">
+                <p className="text-base sm:text-lg text-slate-700 mb-8 leading-relaxed">
                   {slide.subtitle}
                 </p>
-                <div className="bg-white/80 backdrop-blur-sm p-4 rounded-2xl mb-4 border border-slate-200 shadow-xl">
-                  <p className="text-cyan-800 font-bold text-sm">
+                <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-slate-200 shadow-xl">
+                  <p className="text-cyan-800 font-bold text-sm sm:text-base">
                     {slide.highlight}
                   </p>
                 </div>
@@ -556,6 +559,7 @@ function App() {
           </div>
         ))}
 
+        {/* Slide Indicators */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
           {heroSlides.map((_, index) => (
             <button
@@ -568,78 +572,81 @@ function App() {
           ))}
         </div>
 
+        {/* Navigation Buttons */}
         <button
           onClick={() =>
             setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length)
           }
-          className="absolute left-6 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-sm p-4 rounded-full hover:bg-white transition-all shadow-xl hover:shadow-2xl z-10"
+          className="absolute left-4 lg:left-6 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-sm p-3 lg:p-4 rounded-full hover:bg-white transition-all shadow-xl hover:shadow-2xl z-10"
         >
-          <ChevronLeft className="w-6 h-6 text-cyan-600" />
+          <ChevronLeft className="w-5 h-5 lg:w-6 lg:h-6 text-cyan-600" />
         </button>
 
         <button
           onClick={() => setCurrentSlide((prev) => (prev + 1) % heroSlides.length)}
-          className="absolute right-6 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-sm p-4 rounded-full hover:bg-white transition-all shadow-xl hover:shadow-2xl z-10"
+          className="absolute right-4 lg:right-6 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-sm p-3 lg:p-4 rounded-full hover:bg-white transition-all shadow-xl hover:shadow-2xl z-10"
         >
-          <ChevronRight className="w-6 h-6 text-cyan-600" />
+          <ChevronRight className="w-5 h-5 lg:w-6 lg:h-6 text-cyan-600" />
         </button>
-      </section>
 
-      <div className="hidden lg:block absolute top-8 right-8 w-96 z-50">
-        <div className="bg-transparent backdrop-blur-sm p-6 rounded-3xl shadow-2xl border border-slate-200">
-          <h3 className="text-xl font-bold text-slate-800 mb-6">Book Your Test</h3>
-          <div id="form" className="space-y-5">
-            <input
-              type="text"
-              name="fullName"
-              placeholder="Full Name"
-              value={formData.fullName}
-              onChange={handleInputChange}
-              className="w-full px-5 py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium"
-            />
-            <input
-              type="tel"
-              name="mobile"
-              placeholder="Mobile Number"
-              value={formData.mobile}
-              onChange={handleInputChange}
-              className="w-full px-5 py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium"
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email Address"
-              value={formData.email}
-              onChange={handleInputChange}
-              className="w-full px-5 py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium"
-            />
-            <select 
-              name="investigation"
-              value={formData.investigation}
-              onChange={handleInputChange}
-              className="w-full px-5 py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium"
-            >
-              <option value="">Select Investigation</option>
-              <option value="ultrasound">Ultrasound</option>
-              <option value="lab-tests">Lab Tests</option>
-              <option value="health-package">Health Package</option>
-              <option value="x-ray">X-Ray</option>
-            </select>
-            <button
-              onClick={handleSubmit}
-              className="w-full bg-gradient-to-r from-cyan-600 to-blue-700 text-white py-4 rounded-2xl hover:from-cyan-700 hover:to-blue-800 transition-all duration-300 font-bold shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
-            >
-              Book Now
-            </button>
+        {/* Desktop Form - Positioned absolute on desktop only */}
+        <div className="hidden lg:block absolute top-8 right-8 w-96 z-50">
+          <div className="bg-white/90 backdrop-blur-sm p-6 rounded-3xl shadow-2xl border border-slate-200">
+            <h3 className="text-xl font-bold text-slate-800 mb-6">Book Your Test</h3>
+            <div className="space-y-5">
+              <input
+                type="text"
+                name="fullName"
+                placeholder="Full Name"
+                value={formData.fullName}
+                onChange={handleInputChange}
+                className="w-full px-5 py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium"
+              />
+              <input
+                type="tel"
+                name="mobile"
+                placeholder="Mobile Number"
+                value={formData.mobile}
+                onChange={handleInputChange}
+                className="w-full px-5 py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium"
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                value={formData.email}
+                onChange={handleInputChange}
+                className="w-full px-5 py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium"
+              />
+              <select 
+                name="investigation"
+                value={formData.investigation}
+                onChange={handleInputChange}
+                className="w-full px-5 py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium"
+              >
+                <option value="">Select Investigation</option>
+                <option value="ultrasound">Ultrasound</option>
+                <option value="lab-tests">Lab Tests</option>
+                <option value="health-package">Health Package</option>
+                <option value="x-ray">X-Ray</option>
+              </select>
+              <button
+                onClick={handleSubmit}
+                className="w-full bg-gradient-to-r from-cyan-600 to-blue-700 text-white py-4 rounded-2xl hover:from-cyan-700 hover:to-blue-800 transition-all duration-300 font-bold shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
+              >
+                Book Now
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="lg:hidden absolute bottom-0 left-0 right-0 z-50 bg-transparent backdrop-blur-sm border-t border-slate-200">
-        <div className="p-6">
-          <div className="bg-transparent backdrop-blur-sm p-4 rounded-3xl shadow-2xl border border-slate-200">
-            <h3 className="text-lg font-bold text-slate-800 mb-4">Book Your Test</h3>
-            <div id="form" className="space-y-4">
+      {/* Mobile Form Section - Completely separate section */}
+      <section className="lg:hidden bg-gradient-to-br from-slate-50 to-blue-50 py-8">
+        <div className="container mx-auto px-4">
+          <div className="bg-white/90 backdrop-blur-sm p-6 rounded-3xl shadow-2xl border border-slate-200 max-w-md mx-auto">
+            <h3 className="text-xl font-bold text-slate-800 mb-6 text-center">Book Your Test</h3>
+            <div className="space-y-4">
               <input
                 type="text"
                 name="fullName"
@@ -685,8 +692,9 @@ function App() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
+   
 
       {/* Trust Indicators */}
      
