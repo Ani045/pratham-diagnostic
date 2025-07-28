@@ -504,7 +504,7 @@ function App() {
 
       {/* Hero Section */}
       <div className="relative">
-      <section id="home" className="relative h-[115vh] lg:h-screen overflow-hidden">
+      <section id="home" className="relative h-[100vh] lg:h-screen overflow-hidden">
         {heroSlides.map((slide, index) => (
           <div
             key={index}
