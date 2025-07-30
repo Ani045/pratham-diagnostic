@@ -52,8 +52,8 @@ function App() {
   // Your phone numbers - customize these
   const phoneNumbers = [
     { label: "Sec 82 Gurugram", number: "+91-8744002727" },
-    { label: "Manesar", number: "+91-8744002728" },
-    { label: "Old-Gurugram", number: "+91-8744002729" }
+    { label: "Manesar", number: "+91-7291071742" },
+    { label: "Old Gurugram", number: "+91-9971108920" }
   ];
 
   // Hide widget when clicking outside
@@ -573,21 +573,21 @@ function App() {
         </div>
 
         {/* Navigation Buttons */}
-        <button
+        {/* <button
           onClick={() =>
             setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length)
           }
-          className="absolute left-4 lg:left-6 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-sm p-3 lg:p-4 rounded-full hover:bg-white transition-all shadow-xl hover:shadow-2xl z-10"
+          className="absolute left--1 lg:left-6 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-sm p-3 lg:p-4 rounded-full hover:bg-white transition-all shadow-xl hover:shadow-2xl z-10"
         >
           <ChevronLeft className="w-5 h-5 lg:w-6 lg:h-6 text-cyan-600" />
         </button>
 
         <button
           onClick={() => setCurrentSlide((prev) => (prev + 1) % heroSlides.length)}
-          className="absolute right-4 lg:right-6 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-sm p-3 lg:p-4 rounded-full hover:bg-white transition-all shadow-xl hover:shadow-2xl z-10"
+          className="absolute right--1 lg:right-6 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-sm p-3 lg:p-4 rounded-full hover:bg-white transition-all shadow-xl hover:shadow-2xl z-10"
         >
           <ChevronRight className="w-5 h-5 lg:w-6 lg:h-6 text-cyan-600" />
-        </button>
+        </button> */}
 
         {/* Desktop Form - Positioned absolute on desktop only */}
         <div className="hidden lg:block absolute top-8 right-8 w-96 z-50">
@@ -1573,12 +1573,12 @@ function App() {
           </div> */}
         </div>
         <p className="text-slate-400 text-sm leading-relaxed">
-          Leading diagnostic center providing comprehensive medical imaging and laboratory services since 2015.
+          Leading diagnostic centre providing comprehensive medical imaging and laboratory services since 2015.
         </p>
       </div>
 
       <div>
-        <h4 className="text-xl font-bold mb-6">Gurugram Centre</h4>
+        <h4 className="text-xl font-bold mb-6"> Sector 82 Gurugram</h4>
         <div className="text-slate-400 space-y-3">
           <div>
             <p className="text-white font-semibold mb-1">Address</p>
@@ -1588,11 +1588,11 @@ function App() {
             <p className="text-white font-semibold mb-1">Phone</p>
             <p className="font-medium">+91-8744002727</p>
           </div>
-          {/* <div>
+          <div>
             <a href="#" className="text-blue-400 hover:text-blue-300 transition-colors font-medium text-sm">
               📍 View on Google Maps
             </a>
-          </div> */}
+          </div>
         </div>
       </div>
 
@@ -1607,11 +1607,11 @@ function App() {
             <p className="text-white font-semibold mb-1">Phone</p>
             <p className="font-medium">+91-9971108920</p>
           </div>
-          {/* <div>
+          <div>
             <a href="#" className="text-blue-400 hover:text-blue-300 transition-colors font-medium text-sm">
               📍 View on Google Maps
             </a>
-          </div> */}
+          </div>
         </div>
       </div>
 
@@ -1626,11 +1626,11 @@ function App() {
             <p className="text-white font-semibold mb-1">Phone</p>
             <p className="font-medium">+91-7291071742</p>
           </div>
-          {/* <div>
+          <div>
             <a href="#" className="text-blue-400 hover:text-blue-300 transition-colors font-medium text-sm">
               📍 View on Google Maps
             </a>
-          </div> */}
+          </div>
         </div>
       </div>
     </div>
