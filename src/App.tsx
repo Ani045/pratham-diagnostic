@@ -457,9 +457,9 @@ function App() {
               </a>
               <button
                onClick={() => {
-                const section = document.getElementById('form');
-                if (section) {
-                  section.scrollIntoView({ behavior: 'smooth' });
+                const id = document.getElementById('contact-form');
+                if (id) {
+                  id.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
               className="bg-gradient-to-r from-pink-500 to-rose-600 text-white px-8 py-3 rounded-2xl hover:from-pink-600 hover:to-rose-700 transition-all duration-300 font-bold shadow-lg hover:shadow-xl transform hover:-translate-y-1">
@@ -593,7 +593,7 @@ function App() {
         <div className="hidden lg:block absolute top-8 right-8 w-96 z-50">
           <div className="bg-white/90 backdrop-blur-sm p-6 rounded-3xl shadow-2xl border border-slate-200">
             <h3 className="text-xl font-bold text-slate-800 mb-6">Book Your Test</h3>
-            <div className="space-y-5">
+            <div className="space-y-5" id="contact-form">
               <input
                 type="text"
                 name="fullName"
