@@ -104,51 +104,49 @@ function App() {
 
   // Hero slides data
   const heroSlides = [
-    {
-      title: "Get All Routine and Specialized Ultrasound Scans at the Most Affordable Price",
-      subtitle: "State-of-the-art diagnostic equipments with cutting-edge technology",
-      highlight: "Scans done by expert radiologists with MD Radio-Diagnosis from premium institutes like Safdarjung Hospital, New Delhi and Fetal Medicine Foundation, London (UK) certification",
-      image: "https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=800"
-    },
-    {
-      title: "Book All Lab Tests Easily from the Comfort of Your Home",
-      subtitle: "Comprehensive diagnostic health packages at affordable prices for you and your family",
-      highlight: "2 Lakh+ Ultrasound scans | 4 Lakh+ Lab tests | 6 Lakh+ Satisfied Patients",
-      image: "https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg?auto=compress&cs=tinysrgb&w=800"
-    },
-    
-    {
-      title: "Comprehensive Health Packages Designed for Your Family's Wellbeing",
-      subtitle: "Preventive health check-ups with detailed reporting and analysis",
-      highlight: "Trusted diagnostic centre since 2015",
-      image: "https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg?auto=compress&cs=tinysrgb&w=800"
-    }
-  ];
+  {
+    title: "Get All Routine and Specialized Ultrasound Scans at the Most Affordable Price",
+    subtitle: "State-of-the-art diagnostic equipments with cutting-edge technology",
+    highlight: "Scans done by expert radiologists with MD Radio-Diagnosis from premium institutes like Safdarjung Hospital, New Delhi and Fetal Medicine Foundation, London (UK) certification",
+    image: "banner-1.jpg"
+  },
+  {
+    title: "Book All Lab Tests Easily from the Comfort of Your Home",
+    subtitle: "Comprehensive diagnostic health packages at affordable prices for you and your family",
+    highlight: "2 Lakh+ Ultrasound scans | 4 Lakh+ Lab tests | 6 Lakh+ Satisfied Patients",
+    image: "banner-2.jpg"
+  },
+  {
+    title: "Comprehensive Health Packages Designed for Your Family's Wellbeing",
+    subtitle: "Preventive health check-ups with detailed reporting and analysis",
+    highlight: "Trusted diagnostic centre since 2015",
+    image: "banner-3.jpg"
+  }
+];
 
-  const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+const handleInputChange = (e) => {
+  setFormData({
+    ...formData,
+    [e.target.name]: e.target.value
+  });
+};
 
-  const handleSubmit = () => {
-    if (!formData.fullName || !formData.mobile || !formData.email || !formData.investigation) {
-      alert('Please fill all fields');
-      return;
-    }
-    
-    console.log('Form submitted:', formData);
-    alert('Booking request submitted successfully!');
-    
-    setFormData({
-      fullName: '',
-      mobile: '',
-      email: '',
-      investigation: ''
-    });
-  };
-
+const handleSubmit = () => {
+  if (!formData.fullName || !formData.mobile || !formData.email || !formData.investigation) {
+    alert('Please fill all fields');
+    return;
+  }
+  
+  console.log('Form submitted:', formData);
+  alert('Booking request submitted successfully!');
+  
+  setFormData({
+    fullName: '',
+    mobile: '',
+    email: '',
+    investigation: ''
+  });
+};
 
   
 
@@ -503,56 +501,172 @@ function App() {
       </header>
 
       {/* Hero Section */}
-      <div className="relative">
+<div className="relative">
       {/* Hero Section */}
-      <section id="home" className="relative min-h-[70vh] lg:h-screen overflow-hidden">
+      <section id="home" className="relative overflow-hidden">
         {heroSlides.map((slide, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentSlide ? 'opacity-100' : 'opacity-0'
+            aria-hidden={index !== currentSlide}
+            className={`transition-opacity duration-1000 ${
+              index === currentSlide
+                ? 'opacity-100 pointer-events-auto relative'
+                : 'opacity-0 pointer-events-none absolute inset-0'
             }`}
           >
-            {/* Desktop Layout */}
-            <div className="hidden lg:flex h-full">
-              <div className="w-[60%] bg-gradient-to-br from-slate-100 via-blue-100 to-indigo-200 flex items-center">
-                <div className="max-w-2xl mx-auto px-8">
-                  <h2 className="text-5xl md:text-6xl font-bold text-slate-800 mb-8 leading-tight">
-                    {slide.title}
-                  </h2>
-                  <p className="text-xl text-slate-700 mb-10 leading-relaxed">
-                    {slide.subtitle}
-                  </p>
-                  <div className="bg-white/80 backdrop-blur-sm p-8 rounded-3xl mb-10 border border-slate-200 shadow-xl">
-                    <p className="text-cyan-800 font-bold text-lg">
-                      {slide.highlight}
-                    </p>
+            {/* Desktop Layout - Background Image with Overlay */}
+            <div className="hidden lg:block">
+              <div
+                className="min-h-screen bg-cover bg-center bg-no-repeat relative"
+                style={{
+                  backgroundImage: `url(${slide.image})`,
+                }}
+              >
+                {/* Overlay for better text readability */}
+                <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-800/60 to-transparent"></div>
+
+                {/* Content Container */}
+                <div className="relative z-10 min-h-screen flex items-center py-20">
+                  <div className="container mx-auto px-8">
+                    <div className="grid grid-cols-12 gap-8 items-start lg:items-center">
+                      {/* Text Content */}
+                      <div className="col-span-12 lg:col-span-7 mb-8 lg:mb-0">
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 lg:mb-8 leading-tight">
+                          {slide.title}
+                        </h2>
+                        <p className="text-lg lg:text-xl text-gray-200 mb-8 lg:mb-10 leading-relaxed">
+                          {slide.subtitle}
+                        </p>
+                        <div className="bg-white/90 backdrop-blur-sm p-6 lg:p-8 rounded-3xl border border-slate-200 shadow-xl">
+                          <p className="text-cyan-800 font-bold text-base lg:text-lg">{slide.highlight}</p>
+                        </div>
+                      </div>
+
+                      {/* Form */}
+                      <div className="col-span-12 lg:col-span-5">
+                        <div className="bg-white/95 backdrop-blur-sm p-6 lg:p-8 rounded-3xl shadow-2xl border border-slate-200 lg:ml-8 max-w-md lg:max-w-none mx-auto">
+                          <h3 className="text-xl lg:text-2xl font-bold text-slate-800 mb-6">Book Your Test</h3>
+                          <div className="space-y-4 lg:space-y-5" id="contact-form">
+                            <input
+                              type="text"
+                              name="fullName"
+                              placeholder="Full Name"
+                              value={formData.fullName}
+                              onChange={handleInputChange}
+                              className="w-full px-4 lg:px-5 py-3 lg:py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium text-sm lg:text-base"
+                            />
+                            <input
+                              type="tel"
+                              name="mobile"
+                              placeholder="Mobile Number"
+                              value={formData.mobile}
+                              onChange={handleInputChange}
+                              className="w-full px-4 lg:px-5 py-3 lg:py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium text-sm lg:text-base"
+                            />
+                            <input
+                              type="email"
+                              name="email"
+                              placeholder="Email Address"
+                              value={formData.email}
+                              onChange={handleInputChange}
+                              className="w-full px-4 lg:px-5 py-3 lg:py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium text-sm lg:text-base"
+                            />
+                            <select
+                              name="investigation"
+                              value={formData.investigation}
+                              onChange={handleInputChange}
+                              className="w-full px-4 lg:px-5 py-3 lg:py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium text-sm lg:text-base"
+                            >
+                              <option value="">Select Investigation</option>
+                              <option value="ultrasound">Ultrasound</option>
+                              <option value="lab-tests">Lab Tests</option>
+                              <option value="health-package">Health Package</option>
+                              <option value="x-ray">X-Ray</option>
+                            </select>
+                            <button
+                              onClick={handleSubmit}
+                              className="w-full bg-gradient-to-r from-cyan-600 to-blue-700 text-white py-3 lg:py-4 rounded-2xl hover:from-cyan-700 hover:to-blue-800 transition-all duration-300 font-bold shadow-xl hover:shadow-2xl transform hover:-translate-y-1 text-sm lg:text-base"
+                            >
+                              Book Now
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-              
-              <div className="w-[40%] relative">
-                <img
-                  src={slide.image}
-                  alt="Medical Service"
-                  className="w-full h-full object-cover"
-                />
-              </div>
             </div>
 
-            {/* Mobile Layout - Removed fixed height and padding bottom */}
-            <div className="lg:hidden bg-gradient-to-br from-slate-100 via-blue-100 to-indigo-200 min-h-[70vh] flex flex-col justify-center">
-              <div className="px-6 py-8 flex-1 flex flex-col justify-center">
-                <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-6 leading-tight">
+            {/* Mobile Layout - Image, Text, Form in sequence */}
+            <div className="lg:hidden">
+              {/* Image Section */}
+              <div className="h-64 sm:h-80 relative">
+                <img src={slide.image} alt="Medical Service" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-black/20"></div>
+              </div>
+
+              {/* Text Section */}
+              <div className="bg-gradient-to-br from-slate-100 via-blue-100 to-indigo-200 px-4 sm:px-6 py-6 sm:py-8">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-800 mb-4 sm:mb-6 leading-tight">
                   {slide.title}
                 </h2>
-                <p className="text-base sm:text-lg text-slate-700 mb-8 leading-relaxed">
+                <p className="text-sm sm:text-base md:text-lg text-slate-700 mb-6 sm:mb-8 leading-relaxed">
                   {slide.subtitle}
                 </p>
-                <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-slate-200 shadow-xl">
-                  <p className="text-cyan-800 font-bold text-sm sm:text-base">
-                    {slide.highlight}
-                  </p>
+                <div className="bg-white/80 backdrop-blur-sm p-4 sm:p-6 rounded-2xl border border-slate-200 shadow-xl">
+                  <p className="text-cyan-800 font-bold text-xs sm:text-sm md:text-base">{slide.highlight}</p>
+                </div>
+              </div>
+
+              {/* Form Section */}
+              <div className="bg-gradient-to-br from-slate-50 to-blue-50 px-4 sm:px-6 py-6 sm:py-8">
+                <div className="bg-white/90 backdrop-blur-sm p-4 sm:p-6 rounded-3xl shadow-2xl border border-slate-200 max-w-md mx-auto">
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-800 mb-4 sm:mb-6 text-center">Book Your Test</h3>
+                  <div className="space-y-3 sm:space-y-4">
+                    <input
+                      type="text"
+                      name="fullName"
+                      placeholder="Full Name"
+                      value={formData.fullName}
+                      onChange={handleInputChange}
+                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium text-sm"
+                    />
+                    <input
+                      type="tel"
+                      name="mobile"
+                      placeholder="Mobile Number"
+                      value={formData.mobile}
+                      onChange={handleInputChange}
+                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium text-sm"
+                    />
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Email Address"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium text-sm"
+                    />
+                    <select
+                      name="investigation"
+                      value={formData.investigation}
+                      onChange={handleInputChange}
+                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium text-sm"
+                    >
+                      <option value="">Select Investigation</option>
+                      <option value="ultrasound">Ultrasound</option>
+                      <option value="lab-tests">Lab Tests</option>
+                      <option value="health-package">Health Package</option>
+                      <option value="x-ray">X-Ray</option>
+                    </select>
+                    <button
+                      onClick={handleSubmit}
+                      className="w-full bg-gradient-to-r from-cyan-600 to-blue-700 text-white py-2.5 sm:py-3 rounded-2xl hover:from-cyan-700 hover:to-blue-800 transition-all duration-300 font-bold shadow-xl hover:shadow-2xl transform hover:-translate-y-1 text-sm"
+                    >
+                      Book Now
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -560,140 +674,21 @@ function App() {
         ))}
 
         {/* Slide Indicators */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
+        <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-30">
           {heroSlides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`h-3 rounded-full transition-all duration-300 ${
-                index === currentSlide ? 'bg-cyan-600 w-10' : 'bg-white/60 w-3'
+              className={`h-2 sm:h-3 rounded-full transition-all duration-300 ${
+                index === currentSlide ? 'bg-cyan-600 w-8 sm:w-10' : 'bg-white/60 w-2 sm:w-3'
               }`}
+              aria-label={`Go to slide ${index + 1}`}
             />
           ))}
         </div>
-
-        {/* Navigation Buttons */}
-        {/* <button
-          onClick={() =>
-            setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length)
-          }
-          className="absolute left--1 lg:left-6 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-sm p-3 lg:p-4 rounded-full hover:bg-white transition-all shadow-xl hover:shadow-2xl z-10"
-        >
-          <ChevronLeft className="w-5 h-5 lg:w-6 lg:h-6 text-cyan-600" />
-        </button>
-
-        <button
-          onClick={() => setCurrentSlide((prev) => (prev + 1) % heroSlides.length)}
-          className="absolute right--1 lg:right-6 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-sm p-3 lg:p-4 rounded-full hover:bg-white transition-all shadow-xl hover:shadow-2xl z-10"
-        >
-          <ChevronRight className="w-5 h-5 lg:w-6 lg:h-6 text-cyan-600" />
-        </button> */}
-
-        {/* Desktop Form - Positioned absolute on desktop only */}
-        <div className="hidden lg:block absolute top-8 right-8 w-96 z-50">
-          <div className="bg-white/90 backdrop-blur-sm p-6 rounded-3xl shadow-2xl border border-slate-200">
-            <h3 className="text-xl font-bold text-slate-800 mb-6">Book Your Test</h3>
-            <div className="space-y-5" id="contact-form">
-              <input
-                type="text"
-                name="fullName"
-                placeholder="Full Name"
-                value={formData.fullName}
-                onChange={handleInputChange}
-                className="w-full px-5 py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium"
-              />
-              <input
-                type="tel"
-                name="mobile"
-                placeholder="Mobile Number"
-                value={formData.mobile}
-                onChange={handleInputChange}
-                className="w-full px-5 py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium"
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Email Address"
-                value={formData.email}
-                onChange={handleInputChange}
-                className="w-full px-5 py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium"
-              />
-              <select 
-                name="investigation"
-                value={formData.investigation}
-                onChange={handleInputChange}
-                className="w-full px-5 py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium"
-              >
-                <option value="">Select Investigation</option>
-                <option value="ultrasound">Ultrasound</option>
-                <option value="lab-tests">Lab Tests</option>
-                <option value="health-package">Health Package</option>
-                <option value="x-ray">X-Ray</option>
-              </select>
-              <button
-                onClick={handleSubmit}
-                className="w-full bg-gradient-to-r from-cyan-600 to-blue-700 text-white py-4 rounded-2xl hover:from-cyan-700 hover:to-blue-800 transition-all duration-300 font-bold shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
-              >
-                Book Now
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Mobile Form Section - Completely separate section */}
-      <section className="lg:hidden bg-gradient-to-br from-slate-50 to-blue-50 py-8">
-        <div className="container mx-auto px-4">
-          <div className="bg-white/90 backdrop-blur-sm p-6 rounded-3xl shadow-2xl border border-slate-200 max-w-md mx-auto">
-            <h3 className="text-xl font-bold text-slate-800 mb-6 text-center">Book Your Test</h3>
-            <div className="space-y-4">
-              <input
-                type="text"
-                name="fullName"
-                placeholder="Full Name"
-                value={formData.fullName}
-                onChange={handleInputChange}
-                className="w-full px-4 py-3 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium text-sm"
-              />
-              <input
-                type="tel"
-                name="mobile"
-                placeholder="Mobile Number"
-                value={formData.mobile}
-                onChange={handleInputChange}
-                className="w-full px-4 py-3 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium text-sm"
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Email Address"
-                value={formData.email}
-                onChange={handleInputChange}
-                className="w-full px-4 py-3 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium text-sm"
-              />
-              <select 
-                name="investigation"
-                value={formData.investigation}
-                onChange={handleInputChange}
-                className="w-full px-4 py-3 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium text-sm"
-              >
-                <option value="">Select Investigation</option>
-                <option value="ultrasound">Ultrasound</option>
-                <option value="lab-tests">Lab Tests</option>
-                <option value="health-package">Health Package</option>
-                <option value="x-ray">X-Ray</option>
-              </select>
-              <button
-                onClick={handleSubmit}
-                className="w-full bg-gradient-to-r from-cyan-600 to-blue-700 text-white py-3 rounded-2xl hover:from-cyan-700 hover:to-blue-800 transition-all duration-300 font-bold shadow-xl hover:shadow-2xl transform hover:-translate-y-1 text-sm"
-              >
-                Book Now
-              </button>
-            </div>
-          </div>
-        </div>
       </section>
     </div>
+
    
 
       {/* Trust Indicators */}
@@ -1439,11 +1434,22 @@ function App() {
                   </div>
                 </div>
 
-                {/* <div className="bg-white bg-opacity-50 rounded-xl p-3 text-center">
-                  <MapPin className="w-6 h-6 text-gray-400 mx-auto mb-2" />
-                  <p className="text-gray-600 text-xs font-medium">Google Maps</p>
-                  <p className="text-gray-500 text-xs">Gurugram Location</p>
-                </div> */}
+              <div className="bg-white bg-opacity-50 rounded-xl p-3 text-center">
+  
+  
+  {/* Embed Google Maps iframe */}
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7019.928481860392!2d76.95909800000001!3d28.390148!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d3d6175e8df75%3A0x6a97d77e3135a5a!2sPratham%20Diagnostic%20%26%20Imaging%20Centre%2C%20Sector%2082%20Gurugram%3A%205D%20Ultrasound!5e0!3m2!1sen!2sin!4v1754569047385!5m2!1sen!2sin"
+    width="100%"
+    height="200"
+    style={{ border: 0, borderRadius: '0.75rem' }}
+    allowFullScreen
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+    title="Pratham Diagnostic & Imaging Centre Location"
+  />
+</div>
+
               </div>
             </div>
 
@@ -1482,11 +1488,11 @@ function App() {
                   </div>
                 </div>
 
-                {/* <div className="bg-white bg-opacity-50 rounded-xl p-3 text-center">
+                <div className="bg-white bg-opacity-50 rounded-xl p-3 text-center">
                   <MapPin className="w-6 h-6 text-gray-400 mx-auto mb-2" />
                   <p className="text-gray-600 text-xs font-medium">Google Maps</p>
                   <p className="text-gray-500 text-xs">Old Gurugram Location</p>
-                </div> */}
+                </div>
               </div>
             </div>
 
@@ -1526,11 +1532,24 @@ function App() {
                   </div>
                 </div>
 
-                {/* <div className="bg-white bg-opacity-50 rounded-xl p-3 text-center">
-                  <MapPin className="w-6 h-6 text-gray-400 mx-auto mb-2" />
-                  <p className="text-gray-600 text-xs font-medium">Google Maps</p>
-                  <p className="text-gray-500 text-xs">Manesar Location</p>
-                </div> */}
+               <div className="bg-white bg-opacity-50 rounded-xl p-3 text-center max-w-lg mx-auto">
+  {/* Optional MapPin icon and header text */}
+  {/* <MapPin className="w-6 h-6 text-gray-400 mx-auto mb-2" /> */}
+  {/* <p className="text-gray-600 text-xs font-medium">Google Maps</p> */}
+  {/* <p className="text-gray-500 text-xs mb-3">Manesar, Gurgaon Location</p> */}
+
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d28088.2989012731!2d76.938552!3d28.35772!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d3c3770bbcdd3%3A0xb6495ed27b2b262c!2sPratham%20Diagnostic%20%26%20Imaging%20Centre%3A%20Best%20Ultrasound%20Centre%20in%20Manesar%2C%20Gurgaon!5e0!3m2!1sen!2sin!4v1754569188699!5m2!1sen!2sin"
+    width="100%"
+    height="200"
+    style={{ border: 0, borderRadius: '0.75rem' }}
+    allowFullScreen
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+    title="Pratham Diagnostic & Imaging Centre Location"
+  />
+</div>
+
               </div>
             </div>
           </div>
@@ -1588,11 +1607,11 @@ function App() {
             <p className="text-white font-semibold mb-1">Phone</p>
             <p className="font-medium">+91-8744002727</p>
           </div>
-          <div>
+          {/* <div>
             <a href="#" className="text-blue-400 hover:text-blue-300 transition-colors font-medium text-sm">
               📍 View on Google Maps
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -1607,11 +1626,11 @@ function App() {
             <p className="text-white font-semibold mb-1">Phone</p>
             <p className="font-medium">+91-9971108920</p>
           </div>
-          <div>
+          {/* <div>
             <a href="#" className="text-blue-400 hover:text-blue-300 transition-colors font-medium text-sm">
               📍 View on Google Maps
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -1626,11 +1645,11 @@ function App() {
             <p className="text-white font-semibold mb-1">Phone</p>
             <p className="font-medium">+91-7291071742</p>
           </div>
-          <div>
+          {/* <div>
             <a href="#" className="text-blue-400 hover:text-blue-300 transition-colors font-medium text-sm">
               📍 View on Google Maps
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
