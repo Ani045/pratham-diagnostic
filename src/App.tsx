@@ -1577,7 +1577,7 @@ const handleSubmit = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-r from-slate-800 via-slate-900 to-blue-900 text-white py-20">
+      <footer className="bg-gradient-to-r from-slate-800 via-slate-900 to-blue-900 text-white py-8">
   <div className="max-w-7xl mx-auto px-4">
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
       <div>
@@ -1592,71 +1592,79 @@ const handleSubmit = () => {
             <p className="text-xs text-slate-400 font-medium tracking-wide">AUTHENTIC - DEDICATED - MEANINGFUL</p>
           </div> */}
         </div>
-        <p className="text-slate-400 text-sm leading-relaxed">
+        <p className="text-white text-sm leading-relaxed">
           Leading diagnostic centre providing comprehensive medical imaging and laboratory services since 2015.
         </p>
       </div>
 
-      <div>
-        <h4 className="text-xl font-bold mb-6"> Sector 82 Gurugram</h4>
-        <div className="text-slate-400 space-y-3">
-          <div>
-            <p className="text-white font-semibold mb-1">Address</p>
-            <p className="text-sm leading-relaxed">A1/145, Ground Floor, Vatika Town Square 2, Town Sq Ave, Sector 82, Gurugram, Haryana 122004</p>
-          </div>
-          <div>
-            <p className="text-white font-semibold mb-1">Phone</p>
-            <p className="font-medium">+91-8744002727</p>
-          </div>
-          {/* <div>
-            <a href="#" className="text-blue-400 hover:text-blue-300 transition-colors font-medium text-sm">
-              📍 View on Google Maps
-            </a>
-          </div> */}
-        </div>
-      </div>
+     <div>
+  <h4 className="text-xl font-bold mb-6">Sector 82 Gurugram</h4>
+  <div className="text-slate-400 space-y-3">
+    <div>
+      <p className="text-white font-semibold mb-1">Address</p>
+      <p className="text-sm text-white leading-relaxed">A1/145, Ground Floor, Vatika Town Square 2, Town Sq Ave, Sector 82, Gurugram, Haryana 122004</p>
+    </div>
+    <div>
+      <p className="text-white font-semibold mb-1">Phone</p>
+      <a href="tel:+918744002727" className="font-medium text-white hover:text-blue-300 transition-colors">
+        +91-8744002727
+      </a>
+    </div>
+    {/* <div>
+      <a href="#" className="text-blue-400 hover:text-blue-300 transition-colors font-medium text-sm">
+        📍 View on Google Maps
+      </a>
+    </div> */}
+  </div>
+</div>
 
-      <div>
-        <h4 className="text-xl font-bold mb-6">Old Gurugram Centre</h4>
-        <div className="text-slate-400 space-y-3">
-          <div>
-            <p className="text-white font-semibold mb-1">Address</p>
-            <p className="text-sm leading-relaxed">Redcross complex, Opp. Old Civil Hospital, Near MCG office, Gurugram, Haryana</p>
-          </div>
-          <div>
-            <p className="text-white font-semibold mb-1">Phone</p>
-            <p className="font-medium">+91-9971108920</p>
-          </div>
-          {/* <div>
-            <a href="#" className="text-blue-400 hover:text-blue-300 transition-colors font-medium text-sm">
-              📍 View on Google Maps
-            </a>
-          </div> */}
-        </div>
-      </div>
 
-      <div>
-        <h4 className="text-xl font-bold mb-6">Manesar Centre</h4>
-        <div className="text-slate-400 space-y-3">
-          <div>
-            <p className="text-white font-semibold mb-1">Address</p>
-            <p className="text-sm leading-relaxed">NH8, Opposite Hyundai Showroom, Manesar, Gurugram, Haryana 122051</p>
-          </div>
-          <div>
-            <p className="text-white font-semibold mb-1">Phone</p>
-            <p className="font-medium">+91-7291071742</p>
-          </div>
-          {/* <div>
-            <a href="#" className="text-blue-400 hover:text-blue-300 transition-colors font-medium text-sm">
-              📍 View on Google Maps
-            </a>
-          </div> */}
-        </div>
-      </div>
+     <div>
+  <h4 className="text-xl font-bold mb-6">Old Gurugram Centre</h4>
+  <div className="text-slate-400 space-y-3">
+    <div>
+      <p className="text-white font-semibold mb-1">Address</p>
+      <p className="text-sm text-white leading-relaxed">Redcross complex, Opp. Old Civil Hospital, Near MCG office, Gurugram, Haryana</p>
+    </div>
+    <div>
+      <p className="text-white font-semibold mb-1">Phone</p>
+      <a href="tel:+919971108920" className="font-medium text-white hover:text-blue-300 transition-colors">
+        +91-9971108920
+      </a>
+    </div>
+    {/* <div>
+      <a href="#" className="text-blue-400 hover:text-blue-300 transition-colors font-medium text-sm">
+        📍 View on Google Maps
+      </a>
+    </div> */}
+  </div>
+</div>
+
+<div>
+  <h4 className="text-xl font-bold mb-6">Manesar Centre</h4>
+  <div className="text-slate-400 space-y-3">
+    <div>
+      <p className="text-white font-semibold mb-1">Address</p>
+      <p className="text-sm text-white leading-relaxed">NH8, Opposite Hyundai Showroom, Manesar, Gurugram, Haryana 122051</p>
+    </div>
+    <div>
+      <p className="text-white font-semibold mb-1">Phone</p>
+      <a href="tel:+917291071742" className="font-medium text-white blue-400 hover:text-blue-300 transition-colors">
+        +91-7291071742
+      </a>
+    </div>
+    {/* <div>
+      <a href="#" className="text-blue-400 hover:text-blue-300 transition-colors font-medium text-sm">
+        📍 View on Google Maps
+      </a>
+    </div> */}
+  </div>
+</div>
+
     </div>
 
-    <div className="border-t border-slate-700 mt-16 pt-10 text-center text-slate-400">
-      <p className="font-medium">&copy; 2022 Pratham Diagnostic & Imaging Centre. Made by Branding Pioneers</p>
+    <div className="border-t border-slate-700 mt-8 pt-8 text-center text-slate-400">
+      <p className="font-medium">&copy; 2022 Pratham Diagnostic & Imaging Centre. <a className='text-white' href="https://brandingpioneers.com/">Made by Branding Pioneers</a></p>
     </div>
   </div>
 </footer>
