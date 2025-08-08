@@ -218,10 +218,10 @@ const handleSubmit = () => {
 
   // Team data
   const team = [
-    { name: "DR. INDRAJEET KUNDU", qualification: "MBBS, MD (Radio-Diagnosis), FMF (London, UK) certified ", experience: "12+ years", image: "https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg?auto=compress&cs=tinysrgb&w=300" },
-    { name: "DR. ANAM SINGH", qualification: "MBBS, MD (Pathology)", experience: "9+ years", image: "https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg?auto=compress&cs=tinysrgb&w=300" },
-    { name: "DR. VIKAS GOYAL", qualification: "Senior Consultant Radiologist", experience: "22+ years", image: "https://images.pexels.com/photos/5452201/pexels-photo-5452201.jpeg?auto=compress&cs=tinysrgb&w=300" },
-    { name: "DR. AMIT BANSAL", qualification: "MBBS, PGDHM, Family Physician", experience: "20+ years", image: "https://images.pexels.com/photos/5452274/pexels-photo-5452274.jpeg?auto=compress&cs=tinysrgb&w=300" }
+    { name: "DR. INDRAJEET KUNDU", qualification: "MBBS, MD (Radio-Diagnosis), FMF (London, UK) certified ", experience: "12+ years", image: "d-2.jpeg" },
+    { name: "DR. ANAM SINGH", qualification: "MBBS, MD (Pathology)", experience: "9+ years", image: "d-3.jpeg" },
+    { name: "DR. VIKAS GOYAL", qualification: "Senior Consultant Radiologist", experience: "22+ years", image: "Vikas-Goe.jpg" },
+    { name: "DR. AMIT BANSAL", qualification: "MBBS, PGDHM, Family Physician", experience: "20+ years", image: "d-1.jpeg" }
   ];
 
   // Testimonials data
@@ -764,7 +764,7 @@ const handleSubmit = () => {
 
 
       {/* About Us */}
-      <section id="about" className="py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+   <section id="about" className="py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
   <div className="max-w-6xl mx-auto px-4">
     {/* Header */}
     <div className="text-center mb-16">
@@ -775,23 +775,23 @@ const handleSubmit = () => {
         About <span className="text-blue-600">Pratham</span> <span className="text-purple-600">Diagnostic</span> & Imaging Centre
       </h2>
       <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
-      Redefining medical diagnostics with centres at multiple locations in Gurugram and Manesar, providing comprehensive medical imaging and laboratory services since 2015.
+        Redefining medical diagnostics with centres at multiple locations in Gurugram and Manesar, providing comprehensive medical imaging and laboratory services since 2015.
       </p>
     </div>
 
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    {/* Two-column layout with image and services */}
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
       {/* Image */}
       <div>
         <img
-          src="https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=800"
+          src="h.jpeg"
           alt="Medical Equipment"
           className="rounded-2xl shadow-lg w-full"
         />
       </div>
 
-      {/* Content */}
-      <div className="space-y-8">
-        {/* Services Section */}
+      {/* Services Section */}
+      <div>
         <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
           <h3 className="text-2xl font-bold text-gray-800 mb-6">Our Services Include:</h3>
           <div className="grid grid-cols-1 gap-4">
@@ -809,11 +809,11 @@ const handleSubmit = () => {
             </div>
             <div className="flex items-center space-x-4 p-3 bg-orange-50 rounded-xl">
               <div className="w-3 h-3 bg-orange-500 rounded-full flex-shrink-0"></div>
-              <span className="font-medium text-gray-700">EEG & PFT </span>
+              <span className="font-medium text-gray-700">EEG & PFT</span>
             </div>
             <div className="flex items-center space-x-4 p-3 bg-pink-50 rounded-xl">
               <div className="w-3 h-3 bg-pink-500 rounded-full flex-shrink-0"></div>
-              <span className="font-medium text-gray-700">Audiometry  </span>
+              <span className="font-medium text-gray-700">Audiometry</span>
             </div>
             <div className="flex items-center space-x-4 p-3 bg-teal-50 rounded-xl">
               <div className="w-3 h-3 bg-teal-500 rounded-full flex-shrink-0"></div>
@@ -821,19 +821,19 @@ const handleSubmit = () => {
             </div>
           </div>
         </div>
+      </div>
 
-        {/* What Makes Us Special Section */}
+      {/* What Makes Us Special Section below spanning both columns */}
+      <div className="col-span-1 lg:col-span-2">
         <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
           <h3 className="text-2xl font-bold text-gray-800 mb-6">What Makes Us Special:</h3>
-          <div className="space-y-4">
-
-          <div className="flex items-start space-x-4 p-4 bg-orange-50 rounded-xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="flex items-start space-x-4 p-4 bg-orange-50 rounded-xl">
               <div className="bg-orange-100 w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0">
                 <CheckCircle className="w-6 h-6 text-orange-600" />
               </div>
               <span className="text-gray-700 leading-relaxed">MD Radio-diagnosis experts from Safdarjung Hospital</span>
             </div>
-           
             <div className="flex items-start space-x-4 p-4 bg-green-50 rounded-xl">
               <div className="bg-green-100 w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0">
                 <CheckCircle className="w-6 h-6 text-green-600" />
@@ -858,6 +858,7 @@ const handleSubmit = () => {
     </div>
   </div>
 </section>
+
       {/* Health Packages */}
       <section id="packages" className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
