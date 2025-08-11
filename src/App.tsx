@@ -250,7 +250,7 @@ const handleSubmit = () => {
     name: "DR. VIKAS GOYAL", 
     qualification: "Senior Consultant Radiologist", 
     experience: "22+ years", 
-    image: "Vikas-Goe.jpg",
+    image: "docotr-11.jpeg",
     title: "SENIOR CONSULTANT RADIOLOGIST",
     detailedInfo: "Dr Vikas Goyal, Senior Consultant Radiologist. 20+ years experience. He has done his graduation and post graduation in Radiology from SMS Medical College, Jaipur. He is the founder of the Pratham group, which is currently providing all kind of radiology and pathology services in Gurgaon Manesar area including Multislice CT and 1.5 T MRI."
   },
@@ -1314,7 +1314,7 @@ const closePopup = () => {
           <img
             src={doctor.image}
             alt={doctor.name}
-            className="w-full h-[15rem] object-cover"
+            className="w-full md:h-[16rem] object-cover"
           />
           <div className="p-4">
             <h3 className="text-lg font-bold text-gray-800 mb-2">{doctor.name}</h3>
