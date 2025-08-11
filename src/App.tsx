@@ -39,6 +39,10 @@ function App() {
   const [showPhoneOptions, setShowPhoneOptions] = useState(false);
   const [isVisible, setIsVisible] = useState(true); // Visible when page loads
   const widgetRef = useRef<HTMLDivElement>(null);
+  const [selectedDoctor, setSelectedDoctor] = useState(null);
+  const [isBookingPopupOpen, setIsBookingPopupOpen] = useState(false);
+  
+  
   const [formData, setFormData] = useState({
     fullName: '',
     mobile: '',
@@ -46,6 +50,15 @@ function App() {
     investigation: ''
   });
 
+const openBookingPopup = () => {
+  setIsBookingPopupOpen(true);
+  document.body.style.overflow = 'hidden'; // Prevent background scrolling
+};
+
+const closeBookingPopup = () => {
+  setIsBookingPopupOpen(false);
+  document.body.style.overflow = 'unset'; // Restore scrolling
+};
 
 
 
@@ -108,19 +121,19 @@ function App() {
     title: "Get All Routine and Specialized Ultrasound Scans at the Most Affordable Price",
     subtitle: "State-of-the-art diagnostic equipments with cutting-edge technology",
     highlight: "Scans done by expert radiologists with MD Radio-Diagnosis from premium institutes like Safdarjung Hospital, New Delhi and Fetal Medicine Foundation, London (UK) certification",
-    image: "banner-1.jpg"
+    image: "image-1.jpeg"
   },
   {
     title: "Book All Lab Tests Easily from the Comfort of Your Home",
     subtitle: "Comprehensive diagnostic health packages at affordable prices for you and your family",
     highlight: "2 Lakh+ Ultrasound scans | 4 Lakh+ Lab tests | 6 Lakh+ Satisfied Patients",
-    image: "banner-2.jpg"
+    image: "image-2.jpeg"
   },
   {
     title: "Comprehensive Health Packages Designed for Your Family's Wellbeing",
     subtitle: "Preventive health check-ups with detailed reporting and analysis",
     highlight: "Trusted diagnostic centre since 2015",
-    image: "banner-3.jpg"
+    image: "image-3.jpeg"
   }
 ];
 
@@ -168,7 +181,7 @@ const handleSubmit = () => {
         name: "CARDIO-DIABETES HEALTH PACKAGE", 
         price: 5100, 
         mrp: 7050, 
-        tests: "CBC, ESR, Blood Sugar (F & PP), Lipid Profile, HBA1C, Urine Routine Examination, X-ray Chest PA View, ECG, TMT, USG Whole Abdomen" 
+        tests: "CBC, ESR, Blood Sugar (F & PP), Lipid Profile, HbA1c, Urine Routine Examination, X-ray Chest PA View, ECG, TMT, USG Whole Abdomen" 
     },
     { 
         name: "ORTHO-NEURO HEALTH PACKAGE", 
@@ -180,7 +193,7 @@ const handleSubmit = () => {
         name: "DIABETES SCREENING", 
         price: 500, 
         mrp: 700, 
-        tests: "Blood Sugar (F & PP), HBA1C" 
+        tests: "Blood Sugar (F & PP), HbA1c" 
     },
     { 
         name: "ANC PROFILE (PREGNANCY)", 
@@ -216,13 +229,51 @@ const handleSubmit = () => {
     { name: "Health Packages", icon: <Shield className="w-8 h-8" />, description: "Complete health checkups" }
   ];
 
-  // Team data
   const team = [
-    { name: "DR. INDRAJEET KUNDU", qualification: "MBBS, MD (Radio-Diagnosis), FMF (London, UK) certified ", experience: "12+ years", image: "d-2.jpeg" },
-    { name: "DR. ANAM SINGH", qualification: "MBBS, MD (Pathology)", experience: "9+ years", image: "d-3.jpeg" },
-    { name: "DR. VIKAS GOYAL", qualification: "Senior Consultant Radiologist", experience: "22+ years", image: "Vikas-Goe.jpg" },
-    { name: "DR. AMIT BANSAL", qualification: "MBBS, PGDHM, Family Physician", experience: "20+ years", image: "d-1.jpeg" }
-  ];
+  { 
+    name: "DR. INDRAJEET KUNDU", 
+    qualification: "MBBS, MD (Radio-Diagnosis), FMF (London, UK) certified", 
+    experience: "12+ years", 
+    image: "d-2.jpeg",
+    title: "CHIEF CONSULTANT RADIOLOGIST",
+    detailedInfo: "Dr Indrajeet Kundu is a highly experienced and skilled radiologist. He has done his graduation (MBBS) from Medical College, Kolkata and his post-graduation (MD Radio-Diagnosis) and 3 years Senior Residency from Vardhman Mahavir Medical College & Safdarjung Hospital, New Delhi. He is one of the few Indian radiologists certified by Fetal Medicine Foundation (FMF), London, UK."
+  },
+  { 
+    name: "DR. ANAM SINGH", 
+    qualification: "MBBS, MD (Pathology)", 
+    experience: "9+ years", 
+    image: "d-3.jpeg",
+    title: "CHIEF CONSULTANT PATHOLOGIST",
+    detailedInfo: "Dr Anam Singh is the chief pathologist in the centre. Being from an army background and having done her graduation (MBBS) from Army College of Medical Sciences, New Delhi, she has learnt the key skills of discipline and dedication over and above the academic knowledge of her field. She has done her post-graduation (MD Pathology) from Vardhman Mahavir Medical College and Safdarjung Hospital, New Delhi followed by 3 years of Senior Residency from the same institute."
+  },
+  { 
+    name: "DR. VIKAS GOYAL", 
+    qualification: "Senior Consultant Radiologist", 
+    experience: "22+ years", 
+    image: "Vikas-Goe.jpg",
+    title: "SENIOR CONSULTANT RADIOLOGIST",
+    detailedInfo: "Dr Vikas Goyal, Senior Consultant Radiologist. 20+ years experience. He has done his graduation and post graduation in Radiology from SMS Medical College, Jaipur. He is the founder of the Pratham group, which is currently providing all kind of radiology and pathology services in Gurgaon Manesar area including Multislice CT and 1.5 T MRI."
+  },
+  { 
+    name: "DR. AMIT BANSAL", 
+    qualification: "MBBS, PGDHM, Family Physician", 
+    experience: "20+ years", 
+    image: "d-1.jpeg",
+    title: "SENIOR CONSULTANT & FAMILY PHYSICIAN",
+    detailedInfo: "Dr Amit Bansal, MBBS, PGDHM, Senior Consultant & Family Physician, Health and Wellness Counsellor, Industrial Health Check up expert, 18+ year experience. He is the founder of Medipulse Aadhar Hospital, Bhiwadi."
+  }
+];
+
+// Add these functions inside your component (before the return statement)
+const openPopup = (doctor) => {
+  setSelectedDoctor(doctor);
+  document.body.style.overflow = 'hidden'; // Prevent background scrolling
+};
+
+const closePopup = () => {
+  setSelectedDoctor(null);
+  document.body.style.overflow = 'unset'; // Restore scrolling
+};
 
   // Testimonials data
   const testimonials = [
@@ -454,12 +505,7 @@ const handleSubmit = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-600 to-blue-700 group-hover:w-full transition-all duration-300"></span>
               </a>
               <button
-               onClick={() => {
-                const id = document.getElementById('contact-form');
-                if (id) {
-                  id.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
+               onClick={openBookingPopup}
               className="bg-gradient-to-r from-pink-500 to-rose-600 text-white px-8 py-3 rounded-2xl hover:from-pink-600 hover:to-rose-700 transition-all duration-300 font-bold shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                 Book Test
               </button>
@@ -1248,38 +1294,45 @@ const handleSubmit = () => {
 </section>
 
       {/* Our Expert Team */}
-      <section id="team" className="py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <div className="inline-block bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
-              👨‍⚕️ Our Team
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-              Meet Our <span className="text-blue-600">Expert</span> <span className="text-purple-600">Team</span>
-            </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
-              Experienced medical professionals dedicated to providing exceptional healthcare services
-            </p>
-          </div>
+  <section id="team" className="py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+  <div className="max-w-6xl mx-auto px-4">
+    <div className="text-center mb-16">
+      <div className="inline-block bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
+        👨‍⚕️ Our Team
+      </div>
+      <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+        Meet Our <span className="text-blue-600">Expert</span> <span className="text-purple-600">Team</span>
+      </h2>
+      <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
+        Experienced medical professionals dedicated to providing exceptional healthcare services
+      </p>
+    </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((doctor, index) => (
-              <div key={index} className="bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition-all duration-300 border border-gray-100">
-                <img
-                  src={doctor.image}
-                  alt={doctor.name}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-lg font-bold text-gray-800 mb-2">{doctor.name}</h3>
-                  <p className="text-blue-600 font-medium text-sm mb-2">{doctor.qualification}</p>
-                  <p className="text-gray-500 text-sm">{doctor.experience}</p>
-                </div>
-              </div>
-            ))}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {team.map((doctor, index) => (
+        <div key={index} className="bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition-all duration-300 border border-gray-100">
+          <img
+            src={doctor.image}
+            alt={doctor.name}
+            className="w-full h-[15rem] object-cover"
+          />
+          <div className="p-4">
+            <h3 className="text-lg font-bold text-gray-800 mb-2">{doctor.name}</h3>
+            <p className="text-blue-600 font-medium text-sm mb-2">{doctor.qualification}</p>
+            <p className="text-gray-500 text-sm mb-4">{doctor.experience}</p>
+            
+            <button
+              onClick={() => openPopup(doctor)}
+              className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-2 px-4 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 text-sm font-medium"
+            >
+              Read More
+            </button>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
 
       {/* Patient Testimonials */}
@@ -1806,10 +1859,150 @@ const handleSubmit = () => {
         </div>
       </div>
 
+
+      
+{selectedDoctor && (
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+    <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+      {/* Header */}
+      <div className="relative p-6 border-b border-gray-200">
+        <button
+          onClick={closePopup}
+          className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors duration-200"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        
+        <div className="flex items-start space-x-4">
+          <img
+            src={selectedDoctor.image}
+            alt={selectedDoctor.name}
+            className="w-24 h-24 rounded-xl object-cover border-4 border-blue-100"
+          />
+          <div className="flex-1">
+            <h2 className="text-2xl font-bold text-gray-800 mb-1">{selectedDoctor.name}</h2>
+            <p className="text-blue-600 font-semibold mb-1">{selectedDoctor.title}</p>
+            <p className="text-gray-600 text-sm">{selectedDoctor.qualification}</p>
+            <p className="text-purple-600 font-medium text-sm mt-1">{selectedDoctor.experience}</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="p-6">
+        <h3 className="text-lg font-semibold text-gray-800 mb-4">About the Doctor</h3>
+        <p className="text-gray-600 leading-relaxed text-sm">
+          {selectedDoctor.detailedInfo}
+        </p>
+      </div>
+
+      {/* Footer */}
+      <div className="p-6 border-t border-gray-200 bg-gray-50">
+        <button
+          onClick={closePopup}
+          className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 font-medium"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
+{isBookingPopupOpen && (
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+    <div className="bg-white rounded-3xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto">
+      {/* Header */}
+      <div className="relative p-6 border-b border-gray-200">
+        <button
+          onClick={closeBookingPopup}
+          className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors duration-200"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        
+        <div className="text-center">
+          <div className="inline-block bg-gradient-to-r from-cyan-100 to-blue-100 p-3 rounded-full mb-4">
+            <svg className="w-8 h-8 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+            </svg>
+          </div>
+          <h2 className="text-2xl font-bold text-gray-800 mb-2">Book Your Test</h2>
+          <p className="text-gray-600 text-sm">Fill in your details to schedule your appointment</p>
+        </div>
+      </div>
+
+      {/* Form Content */}
+      <div className="p-6">
+        <div className="space-y-5" id="contact-form">
+          <input
+            type="text"
+            name="fullName"
+            placeholder="Full Name"
+            value={formData.fullName}
+            onChange={handleInputChange}
+            className="w-full px-5 py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium"
+          />
+          <input
+            type="tel"
+            name="mobile"
+            placeholder="Mobile Number"
+            value={formData.mobile}
+            onChange={handleInputChange}
+            className="w-full px-5 py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium"
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            value={formData.email}
+            onChange={handleInputChange}
+            className="w-full px-5 py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium"
+          />
+          <select
+            name="investigation"
+            value={formData.investigation}
+            onChange={handleInputChange}
+            className="w-full px-5 py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium"
+          >
+            <option value="">Select Investigation</option>
+            <option value="ultrasound">Ultrasound</option>
+            <option value="lab-tests">Lab Tests</option>
+            <option value="health-package">Health Package</option>
+            <option value="x-ray">X-Ray</option>
+          </select>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div className="p-6 border-t border-gray-200 space-y-3">
+        <button
+          onClick={handleSubmit}
+          className="w-full bg-gradient-to-r from-cyan-600 to-blue-700 text-white py-4 rounded-2xl hover:from-cyan-700 hover:to-blue-800 transition-all duration-300 font-bold shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
+        >
+          Book Now
+        </button>
+        <button
+          onClick={closeBookingPopup}
+          className="w-full bg-gray-100 text-gray-700 py-3 rounded-2xl hover:bg-gray-200 transition-all duration-300 font-medium"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
+
     </div>
 
-   
- 
+    
+
+
   
     
   );
