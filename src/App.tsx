@@ -121,19 +121,19 @@ const closeBookingPopup = () => {
     title: "Get All Routine and Specialized Ultrasound Scans at the Most Affordable Price",
     subtitle: "State-of-the-art diagnostic equipments with cutting-edge technology",
     highlight: "Scans done by expert radiologists with MD Radio-Diagnosis from premium institutes like Safdarjung Hospital, New Delhi and Fetal Medicine Foundation, London (UK) certification",
-    image: "image-1.jpeg"
+    image: "image-2.jpeg"
   },
   {
     title: "Book All Lab Tests Easily from the Comfort of Your Home",
     subtitle: "Comprehensive diagnostic health packages at affordable prices for you and your family",
     highlight: "2 Lakh+ Ultrasound scans | 4 Lakh+ Lab tests | 6 Lakh+ Satisfied Patients",
-    image: "image-2.jpeg"
+    image: "image-3.jpeg"
   },
   {
     title: "Comprehensive Health Packages Designed for Your Family's Wellbeing",
     subtitle: "Preventive health check-ups with detailed reporting and analysis",
     highlight: "Trusted diagnostic centre since 2015",
-    image: "image-3.jpeg"
+    image: "image-1.jpeg"
   }
 ];
 
@@ -234,7 +234,7 @@ const handleSubmit = () => {
     name: "DR. INDRAJEET KUNDU", 
     qualification: "MBBS, MD (Radio-Diagnosis), FMF (London, UK) certified", 
     experience: "12+ years", 
-    image: "d-2.jpeg",
+    image: "dr-indra.jpeg",
     title: "CHIEF CONSULTANT RADIOLOGIST",
     detailedInfo: "Dr Indrajeet Kundu is a highly experienced and skilled radiologist. He has done his graduation (MBBS) from Medical College, Kolkata and his post-graduation (MD Radio-Diagnosis) and 3 years Senior Residency from Vardhman Mahavir Medical College & Safdarjung Hospital, New Delhi. He is one of the few Indian radiologists certified by Fetal Medicine Foundation (FMF), London, UK."
   },
@@ -242,7 +242,7 @@ const handleSubmit = () => {
     name: "DR. ANAM SINGH", 
     qualification: "MBBS, MD (Pathology)", 
     experience: "9+ years", 
-    image: "d-3.jpeg",
+    image: "dr-aman.jpeg",
     title: "CHIEF CONSULTANT PATHOLOGIST",
     detailedInfo: "Dr Anam Singh is the chief pathologist in the centre. Being from an army background and having done her graduation (MBBS) from Army College of Medical Sciences, New Delhi, she has learnt the key skills of discipline and dedication over and above the academic knowledge of her field. She has done her post-graduation (MD Pathology) from Vardhman Mahavir Medical College and Safdarjung Hospital, New Delhi followed by 3 years of Senior Residency from the same institute."
   },
@@ -1314,7 +1314,7 @@ const closePopup = () => {
           <img
             src={doctor.image}
             alt={doctor.name}
-            className="w-full md:h-[16rem] object-cover"
+            className="w-full md:h-[17rem] object-cover"
           />
           <div className="p-4">
             <h3 className="text-lg font-bold text-gray-800 mb-2">{doctor.name}</h3>
