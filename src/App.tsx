@@ -791,12 +791,12 @@ const closePopup = () => {
         </div>
 
         {/* Trust Badges */}
-        <div className="flex justify-center items-center space-x-6 flex-wrap gap-4">
+        <div className="flex justify-center items-center md:space-x-6 flex-wrap gap-4">
           <div className="flex items-center space-x-3 bg-white bg-opacity-10 backdrop-blur-sm px-6 py-3 rounded-full border border-white border-opacity-20">
             <Award className="w-5 h-5 text-yellow-400" />
             <span className="font-medium text-white">Trusted by Leading Hospitals</span>
           </div>
-          <div className="flex items-center space-x-3 bg-white bg-opacity-10 backdrop-blur-sm px-6 py-3 rounded-full border border-white border-opacity-20">
+          <div className="flex items-center  space-x-3 bg-white bg-opacity-10 backdrop-blur-sm px-6 py-3 rounded-full border border-white border-opacity-20">
             <Shield className="w-5 h-5 text-blue-400" />
             <span className="font-medium text-white">ISO Certified Quality</span>
           </div>
