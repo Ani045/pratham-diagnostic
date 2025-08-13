@@ -1012,7 +1012,7 @@ const closePopup = () => {
               Comprehensive <span className="text-cyan-500">Diagnostic</span> <span className="text-purple-500">Services</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              State-of-the-art medical equipment and expert healthcare professionals delivering precise diagnostics
+              State-of-the-art medical equipments and expert healthcare professionals delivering precise diagnostics
             </p>
           </div>
 
@@ -1225,7 +1225,7 @@ const closePopup = () => {
             World Class Technology
           </h3>
           <p className="text-gray-600 leading-relaxed">
-            Equipment from globally renowned brands for superior diagnostic quality and reliability
+            Equipments from globally renowned brands for superior diagnostic quality and reliability
           </p>
         </div>
       </div>
