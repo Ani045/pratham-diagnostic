@@ -258,7 +258,7 @@ const handleSubmit = () => {
     name: "DR. AMIT BANSAL", 
     qualification: "MBBS, PGDHM, Family Physician", 
     experience: "20+ years", 
-    image: "d-1.jpeg",
+    image: "dr-12.jpeg",
     title: "SENIOR CONSULTANT & FAMILY PHYSICIAN",
     detailedInfo: "Dr Amit Bansal, MBBS, PGDHM, Senior Consultant & Family Physician, Health and Wellness Counsellor, Industrial Health Check up expert, 18+ year experience. He is the founder of Medipulse Aadhar Hospital, Bhiwadi."
   }
