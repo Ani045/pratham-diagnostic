@@ -590,54 +590,58 @@ const closePopup = () => {
 
                       {/* Form */}
                       <div className="col-span-12 lg:col-span-5">
-                        <div className="bg-white/95 backdrop-blur-sm p-6 lg:p-8 rounded-3xl shadow-2xl border border-slate-200 lg:ml-8 max-w-md lg:max-w-none mx-auto">
-                          <h3 className="text-xl lg:text-2xl font-bold text-slate-800 mb-6">Book Your Test</h3>
-                          <div className="space-y-4 lg:space-y-5" id="contact-form">
-                            <input
-                              type="text"
-                              name="fullName"
-                              placeholder="Full Name"
-                              value={formData.fullName}
-                              onChange={handleInputChange}
-                              className="w-full px-4 lg:px-5 py-3 lg:py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium text-sm lg:text-base"
-                            />
-                            <input
-                              type="tel"
-                              name="mobile"
-                              placeholder="Mobile Number"
-                              value={formData.mobile}
-                              onChange={handleInputChange}
-                              className="w-full px-4 lg:px-5 py-3 lg:py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium text-sm lg:text-base"
-                            />
-                            <input
-                              type="email"
-                              name="email"
-                              placeholder="Email Address"
-                              value={formData.email}
-                              onChange={handleInputChange}
-                              className="w-full px-4 lg:px-5 py-3 lg:py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium text-sm lg:text-base"
-                            />
-                            <select
-                              name="investigation"
-                              value={formData.investigation}
-                              onChange={handleInputChange}
-                              className="w-full px-4 lg:px-5 py-3 lg:py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium text-sm lg:text-base"
-                            >
-                              <option value="">Select Investigation</option>
-                              <option value="ultrasound">Ultrasound</option>
-                              <option value="lab-tests">Lab Tests</option>
-                              <option value="health-package">Health Package</option>
-                              <option value="x-ray">X-Ray</option>
-                            </select>
-                            <button
-                              onClick={handleSubmit}
-                              className="w-full bg-gradient-to-r from-cyan-600 to-blue-700 text-white py-3 lg:py-4 rounded-2xl hover:from-cyan-700 hover:to-blue-800 transition-all duration-300 font-bold shadow-xl hover:shadow-2xl transform hover:-translate-y-1 text-sm lg:text-base"
-                            >
-                              Book Now
-                            </button>
-                          </div>
-                        </div>
-                      </div>
+  <div className="bg-white/95 backdrop-blur-sm p-6 lg:p-8 rounded-3xl shadow-2xl border border-slate-200 lg:ml-8 max-w-md lg:max-w-none mx-auto">
+    <h3 className="text-xl lg:text-2xl font-bold text-slate-800 mb-6">Book Your Test</h3>
+    
+    <form acceptCharset='UTF-8' action='https://app.formester.com/forms/Si4DqSOVT/submissions' method='POST'>
+      <div className="space-y-4 lg:space-y-5" id="contact-form">
+        <input required
+          type="text"
+          name="fullName"
+          placeholder="Full Name"
+          value={formData.fullName}
+          onChange={handleInputChange}
+          className="w-full px-4 lg:px-5 py-3 lg:py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium text-sm lg:text-base"
+        />
+        <input required
+          type="tel"
+          name="mobile"
+          placeholder="Mobile Number"
+          value={formData.mobile}
+          onChange={handleInputChange}
+          className="w-full px-4 lg:px-5 py-3 lg:py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium text-sm lg:text-base"
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email Address"
+          value={formData.email}
+          onChange={handleInputChange}
+          className="w-full px-4 lg:px-5 py-3 lg:py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium text-sm lg:text-base"
+        />
+        <select
+          name="investigation"
+          value={formData.investigation}
+          onChange={handleInputChange}
+          className="w-full px-4 lg:px-5 py-3 lg:py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium text-sm lg:text-base"
+        >
+          <option value="">Select Investigation</option>
+          <option value="ultrasound">Ultrasound</option>
+          <option value="lab-tests">Lab Tests</option>
+          <option value="health-package">Health Package</option>
+          <option value="x-ray">X-Ray</option>
+        </select>
+        <button
+          type="submit"
+          className="w-full bg-gradient-to-r from-cyan-600 to-blue-700 text-white py-3 lg:py-4 rounded-2xl hover:from-cyan-700 hover:to-blue-800 transition-all duration-300 font-bold shadow-xl hover:shadow-2xl transform hover:-translate-y-1 text-sm lg:text-base"
+        >
+          Book Now
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
                     </div>
                   </div>
                 </div>
@@ -666,55 +670,59 @@ const closePopup = () => {
               </div>
 
               {/* Form Section */}
-              <div className="bg-gradient-to-br from-slate-50 to-blue-50 px-4 sm:px-6 py-6 sm:py-8">
-                <div className="bg-white/90 backdrop-blur-sm p-4 sm:p-6 rounded-3xl shadow-2xl border border-slate-200 max-w-md mx-auto">
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-800 mb-4 sm:mb-6 text-center">Book Your Test</h3>
-                  <div className="space-y-3 sm:space-y-4">
-                    <input
-                      type="text"
-                      name="fullName"
-                      placeholder="Full Name"
-                      value={formData.fullName}
-                      onChange={handleInputChange}
-                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium text-sm"
-                    />
-                    <input
-                      type="tel"
-                      name="mobile"
-                      placeholder="Mobile Number"
-                      value={formData.mobile}
-                      onChange={handleInputChange}
-                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium text-sm"
-                    />
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="Email Address"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium text-sm"
-                    />
-                    <select
-                      name="investigation"
-                      value={formData.investigation}
-                      onChange={handleInputChange}
-                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium text-sm"
-                    >
-                      <option value="">Select Investigation</option>
-                      <option value="ultrasound">Ultrasound</option>
-                      <option value="lab-tests">Lab Tests</option>
-                      <option value="health-package">Health Package</option>
-                      <option value="x-ray">X-Ray</option>
-                    </select>
-                    <button
-                      onClick={handleSubmit}
-                      className="w-full bg-gradient-to-r from-cyan-600 to-blue-700 text-white py-2.5 sm:py-3 rounded-2xl hover:from-cyan-700 hover:to-blue-800 transition-all duration-300 font-bold shadow-xl hover:shadow-2xl transform hover:-translate-y-1 text-sm"
-                    >
-                      Book Now
-                    </button>
-                  </div>
-                </div>
-              </div>
+             <div className="bg-gradient-to-br from-slate-50 to-blue-50 px-4 sm:px-6 py-6 sm:py-8">
+  <div className="bg-white/90 backdrop-blur-sm p-4 sm:p-6 rounded-3xl shadow-2xl border border-slate-200 max-w-md mx-auto">
+    <h3 className="text-lg sm:text-xl font-bold text-slate-800 mb-4 sm:mb-6 text-center">Book Your Test</h3>
+    
+    <form acceptCharset='UTF-8' action='https://app.formester.com/forms/Si4DqSOVT/submissions' method='POST'>
+      <div className="space-y-3 sm:space-y-4">
+        <input required
+          type="text"
+          name="fullName"
+          placeholder="Full Name"
+          value={formData.fullName}
+          onChange={handleInputChange}
+          className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium text-sm"
+        />
+        <input required
+          type="tel"
+          name="mobile"
+          placeholder="Mobile Number"
+          value={formData.mobile}
+          onChange={handleInputChange}
+          className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium text-sm"
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email Address"
+          value={formData.email}
+          onChange={handleInputChange}
+          className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium text-sm"
+        />
+        <select required
+          name="investigation"
+          value={formData.investigation}
+          onChange={handleInputChange}
+          className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium text-sm"
+        >
+          <option value="">Select Investigation</option>
+          <option value="ultrasound">Ultrasound</option>
+          <option value="lab-tests">Lab Tests</option>
+          <option value="health-package">Health Package</option>
+          <option value="x-ray">X-Ray</option>
+        </select>
+        <button
+          type="submit"
+          className="w-full bg-gradient-to-r from-cyan-600 to-blue-700 text-white py-2.5 sm:py-3 rounded-2xl hover:from-cyan-700 hover:to-blue-800 transition-all duration-300 font-bold shadow-xl hover:shadow-2xl transform hover:-translate-y-1 text-sm"
+        >
+          Book Now
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
             </div>
           </div>
         ))}
@@ -1938,54 +1946,58 @@ const closePopup = () => {
 
       {/* Form Content */}
       <div className="p-6">
-        <div className="space-y-5" id="contact-form">
-          <input
-            type="text"
-            name="fullName"
-            placeholder="Full Name"
-            value={formData.fullName}
-            onChange={handleInputChange}
-            className="w-full px-5 py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium"
-          />
-          <input
-            type="tel"
-            name="mobile"
-            placeholder="Mobile Number"
-            value={formData.mobile}
-            onChange={handleInputChange}
-            className="w-full px-5 py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium"
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email Address"
-            value={formData.email}
-            onChange={handleInputChange}
-            className="w-full px-5 py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium"
-          />
-          <select
-            name="investigation"
-            value={formData.investigation}
-            onChange={handleInputChange}
-            className="w-full px-5 py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium"
-          >
-            <option value="">Select Investigation</option>
-            <option value="ultrasound">Ultrasound</option>
-            <option value="lab-tests">Lab Tests</option>
-            <option value="health-package">Health Package</option>
-            <option value="x-ray">X-Ray</option>
-          </select>
-        </div>
-      </div>
+  <form acceptCharset='UTF-8' action='https://app.formester.com/forms/Si4DqSOVT/submissions' method='POST'>
+    <div className="space-y-5" id="contact-form">
+      <input required
+        type="text"
+        name="fullName"
+        placeholder="Full Name"
+        value={formData.fullName}
+        onChange={handleInputChange}
+        className="w-full px-5 py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium"
+      />
+      <input required
+        type="tel"
+        name="mobile"
+        placeholder="Mobile Number"
+        value={formData.mobile}
+        onChange={handleInputChange}
+        className="w-full px-5 py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium"
+      />
+      <input 
+        type="email"
+        name="email"
+        placeholder="Email Address"
+        value={formData.email}
+        onChange={handleInputChange}
+        className="w-full px-5 py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium"
+      />
+      <select required
+        name="investigation"
+        value={formData.investigation}
+        onChange={handleInputChange}
+        className="w-full px-5 py-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all font-medium"
+      >
+        <option value="">Select Investigation</option>
+        <option value="ultrasound">Ultrasound</option>
+        <option value="lab-tests">Lab Tests</option>
+        <option value="health-package">Health Package</option>
+        <option value="x-ray">X-Ray</option>
+      </select>
+      
+      <button
+        type="submit"
+        className="w-full bg-gradient-to-r from-cyan-600 to-blue-700 text-white py-4 rounded-2xl hover:from-cyan-700 hover:to-blue-800 transition-all duration-300 font-bold shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
+      >
+        Book Now
+      </button>
+    </div>
+  </form>
+</div>
+
 
       {/* Footer */}
       <div className="p-6 border-t border-gray-200 space-y-3">
-        <button
-          onClick={handleSubmit}
-          className="w-full bg-gradient-to-r from-cyan-600 to-blue-700 text-white py-4 rounded-2xl hover:from-cyan-700 hover:to-blue-800 transition-all duration-300 font-bold shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
-        >
-          Book Now
-        </button>
         <button
           onClick={closeBookingPopup}
           className="w-full bg-gray-100 text-gray-700 py-3 rounded-2xl hover:bg-gray-200 transition-all duration-300 font-medium"
